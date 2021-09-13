@@ -19,28 +19,14 @@ int main(int argc, char* argv[])
 			int val = i * j;
 			if (val < result) break;
 			int v = val;
-			std::vector<int> units;
-			while (v)
+			int reverseVal = 0;
+			while (v != 0)
 			{
-				units.push_back(v % 10);
+				int units = v % 10;
+				reverseVal = reverseVal * 10 + units;
 				v /= 10;
 			}
-			int start = 0;
-			int end = units.size()-1;
-			bool isPalindromic = true;
-			for( ;start <= end; ++start, --end )
-			{
-				if (units[start] == units[end])
-				{
-					isPalindromic = true;
-				}
-				else
-				{
-					isPalindromic = false;
-					break;
-				}
-			}
-			if( isPalindromic ) result = val;
+			if( val == reverseVal ) result = val;
 		}
 	}
 	printf("The largest palindromic number made from the product of two three digit numbers is: %ui", result);
