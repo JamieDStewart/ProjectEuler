@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Problems">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{1094462a-0e00-40d5-9704-e7c0d2233970}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utilities">
+      <UniqueIdentifier>{18dd87b4-5a6b-4d2f-a8b1-0a021bc6c5b5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="problems/problem_001.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
+    <ClCompile Include="main/main.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="problems\problem_002.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
+    <ClCompile Include="problems\problem_003.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
+    <ClCompile Include="problems\problem_004.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
+    <ClCompile Include="problems\problem_005.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
+    <ClCompile Include="problems\problem_006.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
+    <ClCompile Include="problems\problem_007.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
+    <ClCompile Include="problems\problem_008.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
+    <ClCompile Include="problems\problem_009.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
+    <ClCompile Include="problems\problem_010.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
+    <ClCompile Include="problems\problem_011.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
+    <ClCompile Include="problems\problem_012.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
+    <ClCompile Include="problems\problem_013.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
+    <ClCompile Include="problems\problem_014.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
+    <ClCompile Include="utilities\utilities.cpp">
+      <Filter>Utilities</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="main/problems.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="utilities\utilities.h">
+      <Filter>Utilities</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
