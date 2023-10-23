@@ -61,6 +61,9 @@
     <ClCompile Include="utilities\utilities.cpp">
       <Filter>Utilities</Filter>
     </ClCompile>
+    <ClCompile Include="problems\problem_015.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main/problems.h">

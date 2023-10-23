@@ -18,4 +18,5 @@ namespace PE
 	extern void problem_012();
 	extern void problem_013();
 	extern void problem_014();
+	extern void problem_015();
 }
