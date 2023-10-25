@@ -39,7 +39,7 @@ void PE::problem_019()
 		bool is_leap_year = (starting_year + i) % 4 == 0;
 		if ( is_leap_year )
 		{
-			//test to make sure that if we're on a century that it's divisiable by 400
+			//test to make sure that if we're on a century that it's divisible by 400
 			if ( (starting_year + i) % 100 == 0 )
 			{
 				is_leap_year = (starting_year + i) % 400 == 0;
