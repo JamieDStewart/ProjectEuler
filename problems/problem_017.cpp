@@ -28,17 +28,24 @@ void PE::problem_017()
 								  length( "eighty" ), length( "ninety" ) };
 	constexpr int32_t units[9] = { length( "one" ), length( "two" ), length( "three" ), length( "four" ), length( "five" ), length( "six" ), length( "seven" ), length( "eight" ), length( "nine" ) };
 
+	int32_t letter_count = 0;
 	//How many hundreds are there? Upper_limit / 100 sub first 100
 	constexpr int32_t hundred_count = upper_limit / 100;
-	constexpr int32_t hundred_count_sub_1 = hundred_count - 1;
-	int32_t letter_count = (hundred_count_sub_1 * 100) * hundred;
-	//how many 'ands'
-	// and occurs in every number above 100 minus every whole hundred (200,300,etc)
-	letter_count += _and * hundred_count_sub_1 * 100 - (_and * hundred_count_sub_1);
-
-	//only one "one thousand"
-	letter_count += units[0] + thousand;
-
+	if ( hundred_count > 0 )
+	{
+		constexpr int32_t hundred_count_sub_1 = hundred_count - 1;
+		letter_count = (hundred_count_sub_1 * 100) * hundred;
+		//how many 'ands'
+		// and occurs in every number above 100 minus every whole hundred (200,300,etc)
+		letter_count += _and * hundred_count_sub_1 * 100 - (_and * hundred_count_sub_1);
+	}
+	//how many thousands
+	constexpr int32_t thousands = upper_limit / 1000;
+	for ( int i = 0; i < thousands; ++i )
+	{
+		//only one "one thousand"
+		letter_count += units[i] + thousand;
+	}
 	//Tens occur ten times each per hundred
 	int32_t tens_count = 0;
 	for ( const auto ten : tens )
