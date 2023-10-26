@@ -8,6 +8,6 @@
 
 int main(int argc, char* argv[])
 {
-	PE::problem_021();
+	PE::problem_022();
 	return 0;
 }
