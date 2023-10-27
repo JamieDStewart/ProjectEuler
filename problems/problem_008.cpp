@@ -61,10 +61,7 @@ void PE::problem_008()
 	constexpr int zeroValue = 48;
 	long long maxAdjacentMultiple = 1;
 	for (auto seg : segmentArray)
-	{
-		
-
-		
+	{		
 		const int ei = static_cast<int>(seg.length()) - 13;
 		
 		for ( int si = 0; si <= ei; ++si)

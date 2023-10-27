@@ -13,24 +13,29 @@
 void PE::problem_003()
 {
 	const unsigned long long value = 600851475143;
-	unsigned long long largestPrimeFactor = 0;
-	if (is_prime(value)) largestPrimeFactor = value;
-	if (largestPrimeFactor == 0)
-	{
-		unsigned long long maxValue = value;
+	unsigned long long largest_prime_factor = 0;
 
-		for (unsigned long long i = 2; i <= maxValue; ++i)
+	if ( is_prime( value ) )
+	{
+		largest_prime_factor = value;
+	}
+
+	if ( largest_prime_factor == 0)
+	{
+		unsigned long long max_value = value;
+
+		for (unsigned long long i = 2; i <= max_value; ++i)
 		{
-			if (!(maxValue % i))
+			if (!(max_value % i))
 			{
-				if ( is_prime(i) && i > largestPrimeFactor)
+				if ( is_prime(i) && i > largest_prime_factor )
 				{
-					maxValue = maxValue / i;
-					largestPrimeFactor = i;
+					max_value = max_value / i;
+					largest_prime_factor = i;
 				}
 			}
 		}
 	}
-	std::cout << "The largest prime factor of " << value << " is:" << largestPrimeFactor << std::endl;
+	std::cout << "The largest prime factor of " << value << " is:" << largest_prime_factor << std::endl;
 	
 }

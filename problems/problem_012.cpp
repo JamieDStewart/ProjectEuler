@@ -19,6 +19,7 @@
 */
 
 #include "problems.h"
+#include "utilities.h"
 
 void PE::problem_012()
 {
@@ -30,23 +31,9 @@ void PE::problem_012()
         //Increment the current number and add it to the total running sum
         current_number++;
         triangle_number += current_number;
-        
+        std::vector<uint32_t> factors = get_factors( triangle_number );
         //set factor count to zero
-        num_factors = 0;
-        // start testing factor with value 1 (1 is a factor of all numbers)
-        int64_t factor = 1;
-        //Only need to test up to the square root of a number to reduce range of tests
-        const int64_t tri_sqrt = static_cast<int64_t>(sqrt(triangle_number));
-        while (factor <= tri_sqrt )
-        {
-            // if mod and triangle number is zero then factor is a factor of this number increment factor count
-            if (triangle_number % factor == 0) 
-            {
-                //if number / factor is not equal to factor then a corresponding value large than the square root is a factor
-                num_factors += (factor != tri_sqrt) ? 2 : 1;
-            }
-            factor++;
-        }        
+        num_factors = static_cast<int32_t>(factors.size());
         
     }
 	std::cout << "The value of the first triangle number to have over 500 factors is: " << triangle_number << std::endl;

@@ -32,11 +32,43 @@ bool PE::is_prime( unsigned long long value )
 // Parameter: int32_t n
 // Recursive implementation of factorial
 //************************************
-uint64_t PE::factorial( uint64_t n )
+uint64_t PE::get_factorial( uint64_t n )
 {
 	if( n == 1 )
 	{
 		return 1;
 	}
-	return n * factorial( n - 1 );
+	return n * get_factorial( n - 1 );
+}
+
+//************************************
+// Method:    factors
+// Access:    public 
+// Returns:   std::vector<uint32_t>
+// Qualifier:
+// Parameter: uint32_t n
+// Returns a vector containing the factors of the number passed in
+//************************************
+std::vector<uint32_t> PE::get_factors( const uint32_t n )
+{
+	std::vector<uint32_t> factors(1, 1u);
+	//Only need to test up to the square root of a number to reduce range of tests
+	const uint64_t sqrt_n = static_cast<uint32_t>(sqrt( n ));
+	const auto max_factor = sqrt_n;
+	uint32_t factor = 2;
+	while ( factor <= max_factor )
+	{
+		if ( n % factor == 0 )
+		{
+			factors.push_back( factor );
+			//get the larger factor
+			const uint32_t larger_factor = n / factor;
+			if ( factor != larger_factor ) //don't add the larger factor if this is a square of the number
+			{				
+				factors.push_back( larger_factor );
+			}
+		}
+		factor++;
+	}
+	return factors;
 }

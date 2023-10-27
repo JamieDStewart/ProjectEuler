@@ -24,29 +24,10 @@ void PE::problem_021()
 
 	for( uint32_t i = 1; i < factor_sums.size(); ++i )
 	{
+		std::vector<uint32_t> factors = get_factors( i );
 		//set factor sum total to zero
-		uint32_t sum_factors = 1;
-		// start testing factor with value 2 or 3 (1 is a factor of all numbers)
-		uint32_t factor = (i%2 == 0)? 2: 3;
-		//Only need to test up to the square root of a number to reduce range of tests
-		const auto max_factor = static_cast<uint32_t>(sqrt( i ));
-		while ( factor <= max_factor )
-		{
-			// if mod and triangle number is zero then factor is a factor of this number increment factor count
-			if ( i % factor == 0 )
-			{
-				//if number / factor is not equal to factor then a corresponding value large than the square root is a factor
-				sum_factors += factor;
-				//get the larger factor
-				const uint32_t larger_factor = i / factor;
-				if( factor != larger_factor ) //dont add the larger factor if this is a square of the number
-				{
-					sum_factors += larger_factor;
-				}
-
-			}
-			factor++;
-		}
+		const uint32_t sum_factors = static_cast<uint32_t>(std::accumulate( factors.begin(), factors.end(), 0u ));
+		
 		factor_sums[i] = sum_factors;
 		
 		if( sum_factors < factor_sums.size() && sum_factors != i && factor_sums[sum_factors] == i )
