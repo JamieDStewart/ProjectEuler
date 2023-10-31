@@ -31,7 +31,7 @@ void PE::problem_012()
         //Increment the current number and add it to the total running sum
         current_number++;
         triangle_number += current_number;
-        std::vector<uint32_t> factors = get_factors( triangle_number );
+        std::vector<uint32_t> factors = get_factors( static_cast<uint32_t>(triangle_number) );
         //set factor count to zero
         num_factors = static_cast<int32_t>(factors.size());
         
