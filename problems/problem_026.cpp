@@ -32,9 +32,7 @@ Result PE::problem_026()
 		uint64_t counter = 1;
 		uint64_t mod_value = 10 % i;
 		if ( mod_value == 0 ) continue;
-		uint64_t prev_mod_value = mod_value;
-		bool valid_repetition_pattern = false;
-
+		
 		uint64_t j = upper_limit;
 		for( ; j > 0 && mod_value != 1; --j )
 		{
