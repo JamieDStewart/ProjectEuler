@@ -13,13 +13,15 @@
 */
 
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
 
 #include <algorithm>
 #include <vector>
 
-void PE::problem_018()
+Result PE::problem_018()
 {
-	std::cout << "Problem 018" << std::endl;
+	timer::start();
 	////std::vector<int32_t> input_triangle = { 3, 7, 4, 2, 4, 6, 8, 5, 3, 9 };
 	std::vector<int32_t> input_triangle =
 	{
@@ -89,6 +91,8 @@ void PE::problem_018()
 	}
 	//get the largest element out of the output triangle's final row
 	int32_t max_value = *std::max_element( output_triangle.end() - values_per_row, output_triangle.end() );
-	std::cout << "The maximum total from top to bottom of the triangle by moving to adjacent values is: " << max_value << std::endl;
+	timer::stop();
 
+	return { "18.Maximum Path Sum", static_cast<uint64_t>(max_value), timer::get_elapsed_seconds() };
+	
 }

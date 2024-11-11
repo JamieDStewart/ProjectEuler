@@ -5,16 +5,19 @@
 */
 
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
 
-void PE::problem_005()
+Result PE::problem_005()
 {
+	timer::start();
 	//Number must be a multiple of both 19 & 20
-	constexpr long long baseNumber = 19 * 20;
-	long long val = baseNumber;
+	constexpr uint64_t baseNumber = 19 * 20;
+	uint64_t val = baseNumber;
 	while (true)
 	{
-		const long long st = val;
-		for (long long i = 1; i <= 20; ++i)
+		const uint64_t st = val;
+		for (uint64_t i = 1; i <= 20; ++i)
 		{
 			if (val % i)
 			{
@@ -24,6 +27,8 @@ void PE::problem_005()
 		}
 		if (val == st) break;
 	}
-	std::cout << "Smallest positive number that is evenly divisible by 1 to 20 is: " << val << std::endl;
+	timer::stop();
+	return { "5.Smallest Multiple", val, timer::get_elapsed_seconds() };
+	
 	
 }

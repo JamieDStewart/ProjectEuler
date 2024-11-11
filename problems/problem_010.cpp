@@ -5,18 +5,22 @@
 */
 
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
 #include "utilities.h"
 
-void PE::problem_010()
+Result PE::problem_010()
 {
-	unsigned long long sum = 0;
+	timer::start();
+	uint64_t sum = 0;
 	for (int i = 1; i < 0x1E8480; ++i)
 	{
 		if (is_prime(i))
 		{
-			sum += static_cast<unsigned long long>(i);
+			sum += static_cast<uint64_t>(i);
 		}
 	}
-
-	std::cout << "Sum of primes below 2 million is: " << sum << std::endl;
+	timer::stop();
+	return { "10.Summation of Primes", sum, timer::get_elapsed_seconds() };
+	
 }

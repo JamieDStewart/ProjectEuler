@@ -9,15 +9,17 @@
 */
 
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
 #include "utilities.h"
 
 #include <numeric>
 #include <vector>
 
 
-void PE::problem_021()
+Result PE::problem_021()
 {
-	std::cout << "Problem 021" << std::endl;
+	timer::start();
 	//create a vector to store all factor sums d(n)
 	std::vector<uint32_t> factor_sums( 10001, 0 );
 	uint32_t amicable_sum = 0;
@@ -36,6 +38,7 @@ void PE::problem_021()
 		}
 
 	}
+	timer::stop();
+	return { "21.Amicable Numbers", amicable_sum, timer::get_elapsed_seconds() };
 
-	std::cout << "The sum of the amicable numbers under " << factor_sums.size()-1 << " is: " << amicable_sum <<std::endl;
 }

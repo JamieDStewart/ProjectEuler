@@ -5,30 +5,36 @@
 */
 
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
 
-void PE::problem_004()
+Result PE::problem_004()
 {
-	int result = 0;
-	constexpr int maxValue = 999;
-	constexpr int minValue = 100;
+	timer::start();
 
-	for (int i = maxValue; i >= minValue; --i)
+	uint64_t result = 0;
+	constexpr uint64_t maxValue = 999;
+	constexpr uint64_t minValue = 100;
+
+	for ( uint64_t i = maxValue; i >= minValue; --i)
 	{
-		for (int j = i; j >= minValue; --j)
+		for ( uint64_t j = i; j >= minValue; --j)
 		{
-			const int val = i * j;
+			const uint64_t val = i * j;
 			if (val < result) break;
-			int v = val;
-			int reverseVal = 0;
+			uint64_t v = val;
+			uint64_t reverseVal = 0;
 			while (v != 0)
 			{
-				const int units = v % 10;
+				const uint64_t units = v % 10;
 				reverseVal = reverseVal * 10 + units;
 				v /= 10;
 			}
 			if( val == reverseVal ) result = val;
 		}
 	}
-	std::cout << "The largest palindromic number made from the product of two three digit numbers is: " << result << std::endl;
+	timer::stop();
+	return { "4.Largest Palindrome Product", result, timer::get_elapsed_seconds() };
+	
 
 }

@@ -12,14 +12,16 @@
 */
 
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
 
 #include <algorithm>
 #include <vector>
 #include <string>
 
-void PE::problem_019()
+Result PE::problem_019()
 {
-	std::cout << "Problem 019" << std::endl;
+	timer::start();
 
 	const std::vector<std::string> days_of_the_week = { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 	const std::vector<uint32_t> days_in_a_month = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
@@ -64,6 +66,8 @@ void PE::problem_019()
 			}			
 		}				
 	}
-	std::cout << "Number of 1st of the month Sundays: " << sunday_1st_count << std::endl;
 
+	timer::stop();
+	return { "19.Counting Sundays", sunday_1st_count, timer::get_elapsed_seconds() };
+	
 }

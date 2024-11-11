@@ -8,12 +8,15 @@
 */
 
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
+
 #include <vector>
 
-void PE::problem_015()
+Result PE::problem_015()
 {
-	std::cout << "Problem 015" << std::endl;
-
+	timer::start();
+	
 	//This problem is an accumulation problem. Along each edge of the grid we can accumulate how many paths there are to a point.
 	//For a 2x2 grid there are three points across and three points down counting each point as an intersection of lines not as the center of the grid
 	//  _ _
@@ -30,12 +33,12 @@ void PE::problem_015()
 	//
 	// x values can be found by accumulating the values to the immediate left and immediate up of the x location for example [1,1] has a value of 2 ([0,1] + [1,0] = 2)
 	// This accumulation works for a grid of any size.
-	int32_t gridsize = 20;
-	int32_t edge_count = gridsize + 1;
+	constexpr int64_t gridsize = 20;
+	constexpr int64_t edge_count = gridsize + 1;
 	//create a vector to hold the grid and set all values to 0
-	std::vector<int64_t> grid( edge_count * edge_count, 0 );
+	std::vector<uint64_t> grid( edge_count * edge_count, 0 );
 	//set initial row of grid to value 1.
-	for ( int32_t i = 0; i < edge_count; i++ )
+	for ( int64_t i = 0; i < edge_count; i++ )
 	{
 		//set row value
 		grid[i] = 1;
@@ -44,17 +47,16 @@ void PE::problem_015()
 	}
 
 	//grid has been initialized populate grid from starting values
-	for ( int32_t i = edge_count + 1; i < edge_count * edge_count; ++i )
+	for ( int64_t i = edge_count + 1; i < edge_count * edge_count; ++i )
 	{
-		int32_t x = i % edge_count;
-		int32_t y = i * edge_count;
+		int64_t x = i % edge_count;
 		if ( x > 0 )
 		{
 			grid[i] = grid[i - 1] + grid[i - edge_count];
 		}
 	}
+	timer::stop();
 
-	std::cout << "Value in lower grid position is:" << grid[edge_count * edge_count - 1] << std::endl;
-		
+	return { "15.Lattice Paths", grid[edge_count * edge_count - 1], timer::get_elapsed_seconds() };
 
 }

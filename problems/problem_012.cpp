@@ -19,13 +19,16 @@
 */
 
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
 #include "utilities.h"
 
-void PE::problem_012()
+Result PE::problem_012()
 {
-    int64_t current_number = 0;
-    int64_t triangle_number = 0;
-    int32_t num_factors = 0;
+    timer::start();
+    uint64_t current_number = 0;
+    uint64_t triangle_number = 0;
+    uint32_t num_factors = 0;
     while (num_factors < 500)
     {
         //Increment the current number and add it to the total running sum
@@ -33,9 +36,10 @@ void PE::problem_012()
         triangle_number += current_number;
         std::vector<uint32_t> factors = get_factors( static_cast<uint32_t>(triangle_number) );
         //set factor count to zero
-        num_factors = static_cast<int32_t>(factors.size());
+        num_factors = static_cast<uint32_t>(factors.size());
         
     }
-	std::cout << "The value of the first triangle number to have over 500 factors is: " << triangle_number << std::endl;
+    timer::stop();
+    return { "12.Highly Divisible Triangle Number", triangle_number, timer::get_elapsed_seconds() };
 	
 }

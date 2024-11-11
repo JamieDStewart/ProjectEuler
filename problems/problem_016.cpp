@@ -7,23 +7,26 @@
 */
 
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
+
 #include <numeric>
 #include <vector>
 
-void PE::problem_016()
+Result PE::problem_016()
 {
-	std::cout << "Problem 016" << std::endl;
+	timer::start();
 	//create a vector containing a single value set to 1
-	std::vector<int32_t> accumulator(1,1);
-	int32_t cycle_count = 1000;
+	std::vector<uint64_t> accumulator(1,1);
+	constexpr uint64_t cycle_count = 1000;
 	for ( int i = 0; i < cycle_count; ++i )
 	{
-		int32_t carry_value = 0;
+		uint64_t carry_value = 0;
 		//iterate over the vector starting from the end and moving to the front
 		for ( auto r_iter = accumulator.rbegin(); r_iter != accumulator.rend(); ++r_iter )
 		{
 			//double the value contained in cell
-			int32_t val = carry_value + ((*r_iter) << 1);
+			uint64_t val = carry_value + ((*r_iter) << 1);
 			//If the size of val is greater than 10 then turn on the carry flag.
 			carry_value = (val >= 10) ? 1 : 0;
 			//mod val to get the value in the units position
@@ -37,8 +40,8 @@ void PE::problem_016()
 	}
 
 	//accumulate each element in the array
-	int32_t sum = std::accumulate( accumulator.begin(), accumulator.end(), 0 );
-
-	std::cout << "The value of the sum of components of 2^" << cycle_count << " is: " << sum << std::endl;
+	const uint64_t sum = std::accumulate( accumulator.begin(), accumulator.end(), 0ULL );
+	timer::stop();
+	return { "16.Power Digit Sum", sum, timer::get_elapsed_seconds() };
 
 }

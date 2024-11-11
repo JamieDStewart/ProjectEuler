@@ -13,6 +13,8 @@
 */
 
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
 
 #include <algorithm>
 #include <fstream>
@@ -20,9 +22,9 @@
 #include <string>
 #include <vector>
 
-void PE::problem_067()
+Result PE::problem_067()
 {
-	std::cout << "Problem 067" << std::endl;
+	timer::start();
 	std::vector<uint32_t> input_triangle;
 
 	//open the input file for reading
@@ -91,6 +93,7 @@ void PE::problem_067()
 	}
 	//get the largest element out of the output triangle's final row
 	uint32_t max_value = *std::max_element( output_triangle.end() - values_per_row, output_triangle.end() );
-	std::cout << "The maximum total from top to bottom of the triangle by moving to adjacent values is: " << max_value << std::endl;
-
+	timer::stop();
+	return { "67.Maximum Path Sum II", max_value, timer::get_elapsed_seconds() };
+	
 }

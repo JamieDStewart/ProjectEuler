@@ -4,6 +4,8 @@
 * 
 */
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
 
 #include <iostream>
 #include <string>
@@ -115,17 +117,18 @@ std::vector<std::string> number_vector = {
 
 
 
-void PE::problem_013()
+Result PE::problem_013()
 {
+	timer::start();
 	//create a string that is 60 characters long and contains only zeroes
 	std::string result(60, '0');
 	//get an index into the result string at the last digit
-	int32_t ri = result.length() - 1;
+	int64_t ri = result.length() - 1;
 	//Start by looping through and adding each column of numbers
 	for( int i = 49; i >= 0; --i)
 	{
 		//accumulate the value of each column
-		int32_t sum = 0;
+		int64_t sum = 0;
 		for ( int j = 0; j < 100; ++j )
 		{
 			sum += (number_vector[j].at( i ) - '0');
@@ -133,7 +136,7 @@ void PE::problem_013()
 		//get the sum value and add it into the result string
 		int8_t carry_value = 0;
 		//set the current index into the result 
-		int32_t curr_ri = ri;
+		int64_t curr_ri = ri;
 		while( sum != 0 )
 		{
 			//Get the digit in the units position 
@@ -160,6 +163,10 @@ void PE::problem_013()
 	//strip any leading zeroes from the results string
 	result.erase( 0, std::min( result.find_first_not_of( '0' ), result.size() - 1 ) );
 	//get the first 10 numbers from the result string
-	result = result.substr( 0, 10 );
-	std::cout << "The first ten digits of the sum of the one-hundred 50-digit numbers is: " << result << std::endl;
+	std::string first_10_digits = result = result.substr( 0, 10 );
+	uint64_t result_value = 0;
+	std::istringstream( first_10_digits ) >> result_value;
+	timer::stop();
+	return { "13.Large Sum", result_value, timer::get_elapsed_seconds() };
+	
 }

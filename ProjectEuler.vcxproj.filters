@@ -94,6 +94,12 @@
     <ClCompile Include="problems\problem_024.cpp">
       <Filter>Problems</Filter>
     </ClCompile>
+    <ClCompile Include="problems\problem_025.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
+    <ClCompile Include="main\timer.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main/problems.h">
@@ -101,6 +107,12 @@
     </ClInclude>
     <ClInclude Include="utilities\utilities.h">
       <Filter>Utilities</Filter>
+    </ClInclude>
+    <ClInclude Include="main\result.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="main\timer.h">
+      <Filter>Main</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

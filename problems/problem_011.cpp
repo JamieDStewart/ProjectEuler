@@ -33,13 +33,15 @@
 #include <vector>
 
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
 
-long max(long x, long y)
+uint64_t max( const uint64_t x, const uint64_t y)
 {
 	return (x > y) ? x : y;
 }
 
-void PE::problem_011()
+Result PE::problem_011()
 {
 	const std::string numberBlock = std::string(
 "08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08\
@@ -63,31 +65,33 @@ void PE::problem_011()
  20 73 35 29 78 31 90 01 74 31 49 71 48 86 81 16 23 57 05 54\
  01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48");
 
-	long result = 0;
+	timer::start();
+
+	int64_t result = 0;
 	
-	std::vector<long> numbers;
-	long num = 0;
+	std::vector<uint64_t> numbers;
+	int64_t num = 0;
 	std::stringstream ss = std::stringstream(numberBlock);
 	while (ss >> num)
 	{
 		numbers.push_back(num);
 	}
-	long s = static_cast<long>(numbers.size());
+	int64_t s = static_cast<uint64_t>(numbers.size());
 
-	for (long i = 0; i < s; ++i)
+	for ( int64_t i = 0; i < s; ++i)
 	{
 		//only need to look in four directions
-		long horizontal, vertical, diagonalUp, diagonalDown;
+		int64_t horizontal, vertical, diagonalUp, diagonalDown;
 		//set up initial value as current cell
 		horizontal = vertical = diagonalDown = diagonalUp = numbers[i];
-		for (long j = 1; j < 4; ++j)
+		for ( int64_t j = 1; j < 4; ++j)
 		{
-			const long stride = 20;
+			constexpr int64_t stride = 20;
 			//get index of next values in the chain to look at
-			const long nextHorizontal = i + j;
-			const long nextVertical = i + (j * stride);
-			const long nextDiagonalDown = i + (j * stride) + j;
-			const long nextDiagonalUp = i - (j * stride) + j;
+			const int64_t nextHorizontal = i + j;
+			const int64_t nextVertical = i + (j * stride);
+			const int64_t nextDiagonalDown = i + (j * stride) + j;
+			const int64_t nextDiagonalUp = i - (j * stride) + j;
 			//test to see if values within scope and not wrapping around if valid position multiply value
 			horizontal *= (nextHorizontal % stride && nextHorizontal < s) ? numbers[nextHorizontal] : 0;
 			vertical *= (nextVertical < s) ? numbers[nextVertical] : 0;
@@ -95,10 +99,12 @@ void PE::problem_011()
 			diagonalUp *= (nextDiagonalUp > 0 && nextDiagonalUp % stride) ? numbers[nextDiagonalUp] : 0;
 			
 		}
-		long m = max(max(horizontal, vertical), max(diagonalUp, diagonalDown));
+		const int64_t m = max(max(horizontal, vertical), max(diagonalUp, diagonalDown));
 
 		if (m > result) result = m;
 	}
-	std::cout << "Greatest product of 4 consecutive values in grid is: " << result << std::endl;
+
+	timer::stop();
+	return { "11.Largest Product in Grid", static_cast<uint64_t>(result), timer::get_elapsed_seconds() };
 	
 }

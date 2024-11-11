@@ -7,16 +7,22 @@
 
 
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
 
-void PE::problem_001()
+
+Result PE::problem_001()
 {
-	int sum = 0;
-	for (int i = 3; i < 1000; ++i)
+	timer::start();
+	uint64_t sum = 0;
+	for (uint64_t i = 3; i < 1000; ++i)
 	{
 		if (!(i % 3) || !(i % 5))
 		{
 			sum += i;
 		}
 	}
-	std::cout << "The sum of all multiples of 3 or 5 below 1000 is: " << sum << std::endl;;
+	timer::stop();
+
+	return { "1.Multiples of 3 or 5", sum, timer::get_elapsed_seconds() };
 }

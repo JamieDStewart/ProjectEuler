@@ -61,6 +61,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)main; $(ProjectDir)utilities;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -86,6 +87,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="main/main.cpp" />
+    <ClCompile Include="main\timer.cpp" />
     <ClCompile Include="problems/problem_001.cpp" />
     <ClCompile Include="problems\problem_002.cpp" />
     <ClCompile Include="problems\problem_003.cpp" />
@@ -110,11 +112,14 @@
     <ClCompile Include="problems\problem_022.cpp" />
     <ClCompile Include="problems\problem_023.cpp" />
     <ClCompile Include="problems\problem_024.cpp" />
+    <ClCompile Include="problems\problem_025.cpp" />
     <ClCompile Include="problems\problem_067.cpp" />
     <ClCompile Include="utilities\utilities.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main/problems.h" />
+    <ClInclude Include="main\result.h" />
+    <ClInclude Include="main\timer.h" />
     <ClInclude Include="utilities\utilities.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,33 +1,35 @@
 #pragma once
 
 #include <iostream>
+struct Result;
 
 namespace PE
 {
-	extern void problem_001();
-	extern void problem_002();
-	extern void problem_003();
-	extern void problem_004();
-	extern void problem_005();
-	extern void problem_006();
-	extern void problem_007();
-	extern void problem_008();
-	extern void problem_009();
-	extern void problem_010();
-	extern void problem_011();
-	extern void problem_012();
-	extern void problem_013();
-	extern void problem_014();
-	extern void problem_015();
-	extern void problem_016();
-	extern void problem_017();
-	extern void problem_018();
-	extern void problem_019();
-	extern void problem_020();
-	extern void problem_021();
-	extern void problem_022();
-	extern void problem_023();
-	extern void problem_024();
+	extern Result problem_001();
+	extern Result problem_002();
+	extern Result problem_003();
+	extern Result problem_004();
+	extern Result problem_005();
+	extern Result problem_006();
+	extern Result problem_007();
+	extern Result problem_008();
+	extern Result problem_009();
+	extern Result problem_010();
+	extern Result problem_011();
+	extern Result problem_012();
+	extern Result problem_013();
+	extern Result problem_014();
+	extern Result problem_015();
+	extern Result problem_016();
+	extern Result problem_017();
+	extern Result problem_018();
+	extern Result problem_019();
+	extern Result problem_020();
+	extern Result problem_021();
+	extern Result problem_022();
+	extern Result problem_023();
+	extern Result problem_024();
+	extern Result problem_025();
 
-	extern void problem_067();
+	extern Result problem_067();
 }

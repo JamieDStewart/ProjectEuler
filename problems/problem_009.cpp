@@ -8,21 +8,26 @@
 */
 
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
 
-void PE::problem_009()
+Result PE::problem_009()
 {
-	int product = 0;
-	constexpr int sum = 1000;
-	for (int a = 1; a < sum; ++a)
+	timer::start();
+	uint64_t product = 0;
+	constexpr uint64_t sum = 1000;
+	for ( uint64_t a = 1; a < sum; ++a)
 	{
-		for (int b = a+1; b < sum; ++b)
+		for ( uint64_t b = a+1; b < sum; ++b)
 		{
-			const int c = sum - a - b;
+			const uint64_t c = sum - a - b;
 			if ((a * a + b * b) == (c * c))
 			{
 				product = a * b * c;
 			}
 		}
 	}
-	std::cout << "The product of abc is: " << product << std::endl;
+	timer::stop();
+	return { "9.Special Pythagorean Triplet", product, timer::get_elapsed_seconds() };
+	
 }

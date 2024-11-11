@@ -11,10 +11,14 @@
 
 
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
 #include "utilities.h"
 
 #include <algorithm>
+#include <sstream>
 #include <string>
+
 
 
 //solve via manual permutation
@@ -43,35 +47,34 @@ void permute( std::vector<std::string>& permutations, const uint32_t max_permuta
 	}
 }
 
-void PE::problem_024()
+Result  PE::problem_024()
 {
-	std::cout << "Problem 024" << std::endl;
+	timer::start();
 	const std::string permutation_string = "0123456789";
-	start_timer();
-	std::vector<std::string> permutations = {};
-	//solve through manual permutations
-	permute( permutations, 1100000u, permutation_string, "" );
-	std::sort( permutations.begin(), permutations.end() );
-	stop_timer();
-	std::cout << "=================== Manual Calculation ============================" << std::endl;
-	std::cout << "The millionth permutation of 0123456789 is: " << permutations[999999] << std::endl;
-	std::cout << "Elapsed time: " << get_elapsed_time() << std::endl;
+	
+	//std::vector<std::string> permutations = {};
+	////solve through manual permutations
+	//permute( permutations, 1100000u, permutation_string, "" );
+	//std::sort( permutations.begin(), permutations.end() );
+	//timer::stop();
+	//std::cout << "=================== Manual Calculation ============================" << std::endl;
+	//std::cout << "The millionth permutation of 0123456789 is: " << permutations[999999] << std::endl;
+	//std::cout << "Elapsed time: " << get_elapsed_time() << std::endl;
 
-	//This problem could be solved using std::next_permutation
-	start_timer();
-	char permutation[11];
-	strcpy_s( permutation, 11, permutation_string.c_str());
-	for( uint32_t i = 1; i < 1000000; ++i )
-	{
-		std::next_permutation( permutation, permutation+10 );
-	}
-	stop_timer();
-	std::cout << "=================== Using std::next_permutation ============================" << std::endl;
-	std::cout << "The millionth permutation of 0123456789 is: " << permutation << std::endl;
-	std::cout << "Elapsed time: " << get_elapsed_time() << std::endl;
+	////This problem could be solved using std::next_permutation
+	//start_timer();
+	//char permutation[11];
+	//strcpy_s( permutation, 11, permutation_string.c_str());
+	//for( uint32_t i = 1; i < 1000000; ++i )
+	//{
+	//	std::next_permutation( permutation, permutation+10 );
+	//}
+	//stop_timer();
+	//std::cout << "=================== Using std::next_permutation ============================" << std::endl;
+	//std::cout << "The millionth permutation of 0123456789 is: " << permutation << std::endl;
+	//std::cout << "Elapsed time: " << get_elapsed_time() << std::endl;
 
 	//Calculate using factorial representation
-	start_timer();
 	uint32_t permutation_count = 999999;
 	std::vector<uint32_t> factorial_representation = {};
 
@@ -91,8 +94,10 @@ void PE::problem_024()
 			perm.erase( index, 1 );			
 		}
 	}
-	stop_timer();
-	std::cout << "=================== Using Factorial Number System ============================" << std::endl;
-	std::cout << "The millionth permutation of 0123456789 is: " << millionth_perm << std::endl;
-	std::cout << "Elapsed time: " << get_elapsed_time() << std::endl;
+	uint64_t millionth_perm_value = 0;
+	std::istringstream( millionth_perm ) >> millionth_perm_value;
+
+	timer::stop();
+	return { "24.Lexicographic Permutations", millionth_perm_value, timer::get_elapsed_seconds() };
+	
 }

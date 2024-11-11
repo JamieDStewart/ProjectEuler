@@ -5,10 +5,13 @@
 */
 #include "problems.h"
 #include "utilities.h"
+#include "result.h"
+#include "timer.h"
 
 
-void PE::problem_007()
+Result PE::problem_007()
 {
+	timer::start();
 	int count = 6;			//Taken from question
 	unsigned long long prime = 13;	//Taken from question
 	unsigned long long value = 14;
@@ -21,5 +24,7 @@ void PE::problem_007()
 		}
 		++value;
 	}
-	std::cout << " 10, 001st Prime is: " << prime << std::endl;
+	timer::stop();
+	return { "7.10,001st Prime", prime, timer::get_elapsed_seconds() };
+	
 }

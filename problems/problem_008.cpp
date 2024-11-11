@@ -32,10 +32,11 @@
 #include <sstream>
 
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
 
-void PE::problem_008()
+Result PE::problem_008()
 {
-	int digit_count = 1000;
 	std::stringstream number_string(
 		"7316717653133062491922511967442657474235534919493496983520312774506326239578318016984801869478851843\
 8586156078911294949545950173795833195285320880551112540698747158523863050715693290963295227443043557\
@@ -50,6 +51,8 @@ void PE::problem_008()
 
 	std::vector<std::string> segment_array;
 	std::string segment;
+
+	timer::start();
 	//As multiplying by zero will reduce in a product of 0 for a sequence of any length separate at zero character
 	//Use get line and the delimiter argument to separate string at 0 character
 	while (std::getline(number_string, segment, '0'))
@@ -68,10 +71,10 @@ void PE::problem_008()
 	{		
 		const uint32_t end_index = static_cast<uint32_t>(seg.length()) - 13;
 		
-		for ( int start_index = 0; start_index <= end_index; ++start_index )
+		for ( uint32_t start_index = 0; start_index <= end_index; ++start_index )
 		{
 			uint64_t adjacent_multiple = 1;
-			for (int i = start_index; i < (start_index +13); ++i)
+			for ( uint32_t i = start_index; i < (start_index +13); ++i)
 			{
 				total_characters_multiplied++;
 				adjacent_multiple *= static_cast<uint64_t>(seg.at(i) - zero_value);
@@ -83,9 +86,9 @@ void PE::problem_008()
 		}
 		
 	}
-	std::cout << "Number of segments containing 13+ non zero numerals: " << segment_array.size() << std::endl;
-	std::cout << "Max adjacent product value: " << max_adjacent_multiple << std::endl;
-	std::cout << "Total characters iterated over: " << total_characters_multiplied << std::endl;
+	timer::stop();
+
+	return { "8.Largest Product in Series", max_adjacent_multiple, timer::get_elapsed_seconds() };
 	
 }
 //2090188800

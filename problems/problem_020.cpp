@@ -8,15 +8,17 @@
 */
 
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
 #include "utilities.h"
 
 #include <numeric>
 #include <vector>
 
 
-void PE::problem_020()
+Result PE::problem_020()
 {
-	std::cout << "Problem 020" << std::endl;
+	timer::start();
 	//Factorial of 100 is too large to make use of integers
 	//std::cout << "100! is: " << factorial(100) << std::endl;
 
@@ -43,14 +45,9 @@ void PE::problem_020()
 		}
 	}
 
-	std::cout << factorial_value << "! = ";
-	for( auto unit = factorial.rbegin(); unit != factorial.rend(); ++unit )
-	{
-		std::cout << *unit;
-	}
-	std::cout << std::endl;
+	const uint64_t sum = std::accumulate( factorial.begin(), factorial.end(), 0 );
 
-	uint64_t sum = std::accumulate( factorial.begin(), factorial.end(), 0 );
-	std::cout << "The sum of the components of " << factorial_value << "! is: " << sum << std::endl;
+	timer::stop();
+	return { "20.Factorial Digit Sum", sum, timer::get_elapsed_seconds() };	
 
 }

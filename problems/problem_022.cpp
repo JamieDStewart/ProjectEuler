@@ -11,6 +11,8 @@
 #include <algorithm>
 
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
 
 #include <fstream>
 #include <numeric>
@@ -24,9 +26,9 @@ struct name_score
 	int32_t score;
 };
 
-void PE::problem_022()
+Result PE::problem_022()
 {
-	std::cout << "Problem 022" << std::endl;
+	timer::start();
 
 	//create a vector for storing the name_scores read in
 	std::vector<name_score> name_scores = {};
@@ -68,6 +70,6 @@ void PE::problem_022()
 	{
 		total_name_score += name_scores[index].score * (index + 1);
 	}
-
-	std::cout << "Total name scores from file: " << total_name_score << std::endl;
+	timer::stop();
+	return { "22.Names Scores", total_name_score, timer::get_elapsed_seconds() };
 }

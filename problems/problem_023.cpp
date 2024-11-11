@@ -19,6 +19,8 @@
 
 
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
 #include "utilities.h"
 
 #include <algorithm>
@@ -31,13 +33,13 @@ struct name_score
 	int32_t score;
 };
 
-void PE::problem_023()
+Result PE::problem_023()
 {
-	std::cout << "Problem 023" << std::endl;
+	timer::start();
 	//get all abundant numbers below 28123
-	uint32_t upper_limit = 28123;
+	constexpr uint32_t upper_limit = 28123;
 	std::vector<uint32_t> abundant_numbers;
-	for( uint32_t i = 12; i < upper_limit; ++i )
+	for( uint32_t i = 1; i < upper_limit; ++i )
 	{
 		const auto factors = get_factors( i );
 		const uint32_t factor_sum = std::accumulate( factors.begin(), factors.end(), 0u );
@@ -46,35 +48,32 @@ void PE::problem_023()
 			abundant_numbers.push_back( i );
 		}
 	}
-	std::cout << "Number of abundant numbers: " << abundant_numbers.size() << std::endl;
-	//first numbers smaller than 24 are all not sum of abundant numbers so accumulate their values
-	constexpr uint32_t sum_of_values_less_than_24 = 276;
-	uint32_t sum_of_non_abundants = sum_of_values_less_than_24;
-	//go through numbers larger then 24 up to half way through the list of abundant numbers to find out if number is possible product of two abundant numbers
-	for( uint32_t number = 24; number < upper_limit; number++ )
+	//iterating across the abundant numbers array and summing them will produce all abundant value sums store this in an array and then sum those values that are not the
+	//product of two abundant numbers
+	bool abundant_products[upper_limit] = { false };
+	const uint64_t abundant_count = abundant_numbers.size();
+	for( uint32_t i = 0; i < abundant_count; ++i )
 	{
-		//only need to go half way as would have found opposite half by then
-		bool is_abundant_sum = false;
-		const uint32_t half_number = number >> 1;
-		//find iterator location to search up to
-		for ( auto abundant_number = abundant_numbers.begin(); *abundant_number <= half_number; ++abundant_number )
+		for ( uint32_t j = i; j < abundant_count; ++j )
 		{
-			uint32_t number_sub_abundant = number - (*abundant_number);
-			// Use find to see if the opposite number is contained in the list of abundant numbers.
-			if ( std::find( abundant_number, abundant_numbers.end(), number_sub_abundant ) != abundant_numbers.end() )
-			{				
-				is_abundant_sum = true;
-				break;
+			uint64_t result = abundant_numbers[i] + abundant_numbers[j];
+			if ( result < upper_limit )
+			{
+				abundant_products[result] = true;
 			}
-
 		}
-		if( !is_abundant_sum )
-		{
-			
-			sum_of_non_abundants += number;
-		}
-		
 	}
-	std::cout << "Sum of non abundant composed numbers: " << sum_of_non_abundants << std::endl;
-
+	//loop over the array of abundant products and sum the index value of all non abundant values.
+	uint64_t sum_of_non_abundant{0};
+	for( uint64_t n = 1; n < upper_limit; ++n )
+	{
+		if( !abundant_products[n] )
+		{
+			sum_of_non_abundant += n;
+		}
+	}
+		
+	timer::stop();
+	return { "23.Non-Abundant Numbers", sum_of_non_abundant, timer::get_elapsed_seconds() };
+	
 }

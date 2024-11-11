@@ -14,31 +14,34 @@
 * Note: once the chain starts the terms are allowed to go above one million*
 */
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
 
-uint32_t even( uint32_t value )
+uint64_t even( uint64_t value )
 {
 	return value >> 1;
 }
 
-uint32_t odd( uint32_t value )
+uint64_t odd( uint64_t value )
 {
 	return 3 * value + 1;
 }
 
 
-void PE::problem_014()
+Result PE::problem_014()
 {
-	std::cout << "Problem 014" << std::endl;
-	constexpr uint32_t upper_limit = 1000000;
+	timer::start();
+	
+	constexpr uint64_t upper_limit = 1000000;
 	//two variables to track the sequence max length and the value that caused this max length
-	uint32_t max_sequence_length = 0;
-	uint32_t sequence_value = 0;
+	uint64_t max_sequence_length = 0;
+	uint64_t sequence_value = 0;
 
 	//iterate over all values from 1 - 1,000,000 to find the one which produces the longest sequence
-	for ( uint32_t i = 1; i < upper_limit; ++i )
+	for ( uint64_t i = 1; i < upper_limit; ++i )
 	{
-		uint32_t sequence_length = 1;
-		uint32_t val = i;
+		uint64_t sequence_length = 1;
+		uint64_t val = i;
 		//sequence has ended when value reaches 1
 		while ( val != 1 )
 		{
@@ -53,6 +56,7 @@ void PE::problem_014()
 			sequence_value = i;
 		}
 	}
-	std::cout << "Value: " << sequence_value << " produces a sequence length of: " << max_sequence_length << std::endl;
-
+	timer::stop();
+	return { "14.Longest Collatz Sequence", sequence_value, timer::get_elapsed_seconds() };
+	
 }

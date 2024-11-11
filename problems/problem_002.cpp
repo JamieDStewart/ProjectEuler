@@ -5,13 +5,16 @@
 */
 
 #include "problems.h"
+#include "result.h"
+#include "timer.h"
 
-void PE::problem_002()
+Result PE::problem_002()
 {
-	unsigned long fib_accumulated = 1;
-	unsigned long fib_previous = 1;
-	unsigned long fib_even_sum = 0;
-	for(int prev_accum = 1; fib_accumulated < 4000000; fib_previous = prev_accum)
+	timer::start();
+	uint64_t fib_accumulated = 1;
+	uint64_t fib_previous = 1;
+	uint64_t fib_even_sum = 0;
+	for(uint64_t prev_accum{}; fib_accumulated < 4000000; fib_previous = prev_accum)
 	{
 		prev_accum = fib_accumulated;
 		fib_accumulated += fib_previous;
@@ -21,5 +24,6 @@ void PE::problem_002()
 			fib_even_sum += fib_accumulated;
 		}
 	}
-	std::cout <<"The accumulated sum of the even valued numbers in the Fibonacci sequence is : " << fib_even_sum << std::endl;
+	timer::stop();
+	return { "2.Even Fibonacci Numbers", fib_even_sum, timer::get_elapsed_seconds() };
 }
