@@ -42,6 +42,6 @@ Result PE::problem_016()
 	//accumulate each element in the array
 	const uint64_t sum = std::accumulate( accumulator.begin(), accumulator.end(), 0ULL );
 	timer::stop();
-	return { "16.Power Digit Sum", sum, timer::get_elapsed_seconds() };
+	return { "16.Power Digit Sum", get_result_string( sum ), timer::get_elapsed_seconds() };
 
 }

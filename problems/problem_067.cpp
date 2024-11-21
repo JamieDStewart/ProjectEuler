@@ -94,6 +94,6 @@ Result PE::problem_067()
 	//get the largest element out of the output triangle's final row
 	uint32_t max_value = *std::max_element( output_triangle.end() - values_per_row, output_triangle.end() );
 	timer::stop();
-	return { "67.Maximum Path Sum II", max_value, timer::get_elapsed_seconds() };
+	return { "67.Maximum Path Sum II", get_result_string( max_value), timer::get_elapsed_seconds() };
 	
 }

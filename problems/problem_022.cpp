@@ -71,5 +71,5 @@ Result PE::problem_022()
 		total_name_score += name_scores[index].score * (index + 1);
 	}
 	timer::stop();
-	return { "22.Names Scores", total_name_score, timer::get_elapsed_seconds() };
+	return { "22.Names Scores", get_result_string( total_name_score ), timer::get_elapsed_seconds() };
 }

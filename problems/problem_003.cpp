@@ -19,7 +19,7 @@ Result PE::problem_003()
 	{
 		largest_prime_factor = value;
 		timer::stop();
-		return { "Largest Prime Factor", largest_prime_factor, timer::get_elapsed_seconds() };
+		return { "Largest Prime Factor", get_result_string(largest_prime_factor), timer::get_elapsed_seconds() };
 	}
 	//If the value isn't a prime itself
 	unsigned long long max_value = value;
@@ -36,6 +36,6 @@ Result PE::problem_003()
 		}
 	}
 	timer::stop();
-	return { "3.Largest Prime Factor", largest_prime_factor, timer::get_elapsed_seconds() };
+	return { "3.Largest Prime Factor", get_result_string(largest_prime_factor), timer::get_elapsed_seconds() };
 	
 }

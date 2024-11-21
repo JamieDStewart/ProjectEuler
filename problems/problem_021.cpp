@@ -39,6 +39,6 @@ Result PE::problem_021()
 
 	}
 	timer::stop();
-	return { "21.Amicable Numbers", amicable_sum, timer::get_elapsed_seconds() };
+	return { "21.Amicable Numbers", get_result_string( amicable_sum ), timer::get_elapsed_seconds() };
 
 }

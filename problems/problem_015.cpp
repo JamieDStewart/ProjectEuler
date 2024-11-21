@@ -57,6 +57,6 @@ Result PE::problem_015()
 	}
 	timer::stop();
 
-	return { "15.Lattice Paths", grid[edge_count * edge_count - 1], timer::get_elapsed_seconds() };
+	return { "15.Lattice Paths", get_result_string( grid[edge_count * edge_count - 1]), timer::get_elapsed_seconds() };
 
 }

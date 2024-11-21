@@ -47,5 +47,5 @@ Result PE::problem_026()
 	}
 
 	timer::stop();
-	return { "26.Reciprocal Cycles", denominator, timer::get_elapsed_seconds() };
+	return { "26.Reciprocal Cycles", get_result_string( denominator), timer::get_elapsed_seconds() };
 }

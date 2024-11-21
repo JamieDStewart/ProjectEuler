@@ -105,6 +105,6 @@ Result PE::problem_011()
 	}
 
 	timer::stop();
-	return { "11.Largest Product in Grid", static_cast<uint64_t>(result), timer::get_elapsed_seconds() };
+	return { "11.Largest Product in Grid", get_result_string(result), timer::get_elapsed_seconds() };
 	
 }

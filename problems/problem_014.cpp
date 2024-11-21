@@ -57,6 +57,6 @@ Result PE::problem_014()
 		}
 	}
 	timer::stop();
-	return { "14.Longest Collatz Sequence", sequence_value, timer::get_elapsed_seconds() };
+	return { "14.Longest Collatz Sequence", get_result_string( sequence_value ), timer::get_elapsed_seconds() };
 	
 }

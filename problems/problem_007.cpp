@@ -25,6 +25,6 @@ Result PE::problem_007()
 		++value;
 	}
 	timer::stop();
-	return { "7.10,001st Prime", prime, timer::get_elapsed_seconds() };
+	return { "7.10,001st Prime", get_result_string(prime), timer::get_elapsed_seconds() };
 	
 }

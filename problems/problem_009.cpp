@@ -28,6 +28,6 @@ Result PE::problem_009()
 		}
 	}
 	timer::stop();
-	return { "9.Special Pythagorean Triplet", product, timer::get_elapsed_seconds() };
+	return { "9.Special Pythagorean Triplet", get_result_string(product), timer::get_elapsed_seconds() };
 	
 }

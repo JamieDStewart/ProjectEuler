@@ -28,7 +28,7 @@ Result PE::problem_005()
 		if (val == st) break;
 	}
 	timer::stop();
-	return { "5.Smallest Multiple", val, timer::get_elapsed_seconds() };
+	return { "5.Smallest Multiple", get_result_string(val), timer::get_elapsed_seconds() };
 	
 	
 }

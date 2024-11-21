@@ -98,6 +98,6 @@ Result  PE::problem_024()
 	std::istringstream( millionth_perm ) >> millionth_perm_value;
 
 	timer::stop();
-	return { "24.Lexicographic Permutations", millionth_perm_value, timer::get_elapsed_seconds() };
+	return { "24.Lexicographic Permutations", get_result_string( millionth_perm_value), timer::get_elapsed_seconds() };
 	
 }

@@ -103,6 +103,12 @@
     <ClCompile Include="problems\problem_026.cpp">
       <Filter>Problems</Filter>
     </ClCompile>
+    <ClCompile Include="problems\problem_027.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
+    <ClCompile Include="problems\problem_028.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main/problems.h">

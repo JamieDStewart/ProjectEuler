@@ -88,7 +88,7 @@ Result PE::problem_008()
 	}
 	timer::stop();
 
-	return { "8.Largest Product in Series", max_adjacent_multiple, timer::get_elapsed_seconds() };
+	return { "8.Largest Product in Series", get_result_string(max_adjacent_multiple), timer::get_elapsed_seconds() };
 	
 }
 //2090188800

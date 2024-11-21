@@ -74,6 +74,6 @@ Result PE::problem_023()
 	}
 		
 	timer::stop();
-	return { "23.Non-Abundant Numbers", sum_of_non_abundant, timer::get_elapsed_seconds() };
+	return { "23.Non-Abundant Numbers", get_result_string( sum_of_non_abundant), timer::get_elapsed_seconds() };
 	
 }

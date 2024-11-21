@@ -25,5 +25,5 @@ Result PE::problem_002()
 		}
 	}
 	timer::stop();
-	return { "2.Even Fibonacci Numbers", fib_even_sum, timer::get_elapsed_seconds() };
+	return { "2.Even Fibonacci Numbers", get_result_string(fib_even_sum), timer::get_elapsed_seconds() };
 }

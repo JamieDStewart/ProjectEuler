@@ -21,6 +21,6 @@ Result PE::problem_010()
 		}
 	}
 	timer::stop();
-	return { "10.Summation of Primes", sum, timer::get_elapsed_seconds() };
+	return { "10.Summation of Primes", get_result_string(sum), timer::get_elapsed_seconds() };
 	
 }

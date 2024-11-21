@@ -24,5 +24,5 @@ Result PE::problem_001()
 	}
 	timer::stop();
 
-	return { "1.Multiples of 3 or 5", sum, timer::get_elapsed_seconds() };
+	return { "1.Multiples of 3 or 5", get_result_string(sum), timer::get_elapsed_seconds() };
 }

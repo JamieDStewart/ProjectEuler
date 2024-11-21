@@ -40,6 +40,6 @@ Result PE::problem_012()
         
     }
     timer::stop();
-    return { "12.Highly Divisible Triangle Number", triangle_number, timer::get_elapsed_seconds() };
+    return { "12.Highly Divisible Triangle Number", get_result_string( triangle_number ), timer::get_elapsed_seconds() };
 	
 }

@@ -4,7 +4,7 @@
 
 namespace PE
 {
-	extern bool is_prime( unsigned long long value );
+	extern bool is_prime( int64_t value );
 
 	extern uint64_t get_factorial( uint64_t n );
 

@@ -73,6 +73,6 @@ Result PE::problem_017()
 	letter_count += units_count;
 	
 	timer::stop();
-	return { "17.Number Letter Counts", letter_count, timer::get_elapsed_seconds() };
+	return { "17.Number Letter Counts", get_result_string( letter_count ), timer::get_elapsed_seconds() };
 	
 }

@@ -22,6 +22,6 @@ Result PE::problem_006()
 	constexpr uint64_t digitSumSquared = sumOfNDigits * sumOfNDigits;
 	constexpr uint64_t sumOfNSquaredDigits = (N * (N + 1) * (2 * N + 1)) / 6;
 	timer::stop();
-	return { "6.Sum Square Difference", digitSumSquared - sumOfNSquaredDigits, timer::get_elapsed_seconds() };
+	return { "6.Sum Square Difference", get_result_string(digitSumSquared - sumOfNSquaredDigits), timer::get_elapsed_seconds() };
 
 }

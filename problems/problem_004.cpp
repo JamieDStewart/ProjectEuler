@@ -34,7 +34,7 @@ Result PE::problem_004()
 		}
 	}
 	timer::stop();
-	return { "4.Largest Palindrome Product", result, timer::get_elapsed_seconds() };
+	return { "4.Largest Palindrome Product", get_result_string(result), timer::get_elapsed_seconds() };
 	
 
 }

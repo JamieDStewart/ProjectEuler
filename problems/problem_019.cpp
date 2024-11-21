@@ -68,6 +68,6 @@ Result PE::problem_019()
 	}
 
 	timer::stop();
-	return { "19.Counting Sundays", sunday_1st_count, timer::get_elapsed_seconds() };
+	return { "19.Counting Sundays", get_result_string( sunday_1st_count ), timer::get_elapsed_seconds() };
 	
 }

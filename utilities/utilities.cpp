@@ -11,14 +11,14 @@
 // Evaluate is the passed in parameter is a prime number
 // returns true if prime.
 //************************************
-bool PE::is_prime( unsigned long long value )
+bool PE::is_prime( int64_t value )
 {
 	if ( value <= 1 ) return false;
 	if ( value <= 3 ) return true;
 
 	if ( !(value % 2) || !(value % 3) ) return false;
 
-	for ( unsigned long long i = 5; i * i <= value; i += 6 )
+	for ( uint64_t i = 5; i * i <= value; i += 6 )
 	{
 		if ( !(value % i) || !(value % (i + 2)) ) return false;
 	}

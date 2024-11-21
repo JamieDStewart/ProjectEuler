@@ -59,6 +59,6 @@ Result PE::problem_025()
 	}
 
 	timer::stop();
-	return { "25.1000-Digit Fibonacci Number", sequence_id, timer::get_elapsed_seconds() };
+	return { "25.1000-Digit Fibonacci Number", get_result_string( sequence_id), timer::get_elapsed_seconds() };
 	
 }

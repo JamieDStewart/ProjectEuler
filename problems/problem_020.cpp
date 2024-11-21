@@ -48,6 +48,6 @@ Result PE::problem_020()
 	const uint64_t sum = std::accumulate( factorial.begin(), factorial.end(), 0 );
 
 	timer::stop();
-	return { "20.Factorial Digit Sum", sum, timer::get_elapsed_seconds() };	
+	return { "20.Factorial Digit Sum", get_result_string( sum ), timer::get_elapsed_seconds() };
 
 }

@@ -93,6 +93,6 @@ Result PE::problem_018()
 	int32_t max_value = *std::max_element( output_triangle.end() - values_per_row, output_triangle.end() );
 	timer::stop();
 
-	return { "18.Maximum Path Sum", static_cast<uint64_t>(max_value), timer::get_elapsed_seconds() };
+	return { "18.Maximum Path Sum", get_result_string( max_value), timer::get_elapsed_seconds() };
 	
 }

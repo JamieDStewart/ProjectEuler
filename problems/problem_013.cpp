@@ -167,6 +167,6 @@ Result PE::problem_013()
 	uint64_t result_value = 0;
 	std::istringstream( first_10_digits ) >> result_value;
 	timer::stop();
-	return { "13.Large Sum", result_value, timer::get_elapsed_seconds() };
+	return { "13.Large Sum", get_result_string( result_value ), timer::get_elapsed_seconds() };
 	
 }
