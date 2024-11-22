@@ -35,6 +35,7 @@ namespace PE
 	extern Result problem_028();
 	extern Result problem_029();
 	extern Result problem_030();
+	extern Result problem_031();
 
 	extern Result problem_067();
 }

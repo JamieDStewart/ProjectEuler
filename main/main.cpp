@@ -18,7 +18,7 @@ std::vector< Result( * )() > problems = {	PE::problem_001, PE::problem_002, PE::
 											PE::problem_016, PE::problem_017, PE::problem_018, PE::problem_019, PE::problem_020,
 											PE::problem_021, PE::problem_022, PE::problem_023, PE::problem_024, PE::problem_025,
 											PE::problem_026, PE::problem_027, PE::problem_028, PE::problem_029, PE::problem_030,
-											PE::problem_067 };
+											PE::problem_031, PE::problem_067 };
 
 void print_break_to_console()
 {
