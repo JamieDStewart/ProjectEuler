@@ -18,7 +18,7 @@ bool PE::is_prime( int64_t value )
 
 	if ( !(value % 2) || !(value % 3) ) return false;
 
-	for ( uint64_t i = 5; i * i <= value; i += 6 )
+	for ( int64_t i = 5; i * i <= value; i += 6 )
 	{
 		if ( !(value % i) || !(value % (i + 2)) ) return false;
 	}

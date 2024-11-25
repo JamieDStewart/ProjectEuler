@@ -18,10 +18,11 @@
 Result PE::problem_031()
 {
 	timer::start();
-	std::vector<uint64_t> coin_values{ 1, 2, 5, 10, 20, 50, 100, 200 };
+	constexpr uint64_t limit = 200;
+	const std::vector<uint64_t> coin_values{ 1, 2, 5, 10, 20, 50, 100, 200 };
 	// How many variations are there to make up each possible coin value. Make use of some dynamic programming
 	// Keep a vector of possible combinations this is the number of different coins that can be used to make up to each value
-	std::vector<uint64_t> combinations( 201,0 );
+	std::vector<uint64_t> combinations( limit + 1,0 );
 	//only one way to make up a value of zero, use no coins.
 	combinations[0] = 1;
 	// for each coin value work out how many possible ways there are to make each sum
@@ -31,12 +32,12 @@ Result PE::problem_031()
 	// using a vector when we add in a new coin all values equal to and higher than that coins value will have an increased number of combinations
 	for( auto coin : coin_values )
 	{
-		for( uint64_t i = coin; i < 201; ++i )
+		for( uint64_t i = coin; i < combinations.size(); ++i )
 		{
 			combinations[i] += combinations[i - coin];
 		}
 	}
 
 	timer::stop();
-	return { "30.Coin Sums", get_result_string( combinations[200] ), timer::get_elapsed_seconds()};
+	return { "31.Coin Sums", get_result_string( combinations[limit] ), timer::get_elapsed_seconds()};
 }

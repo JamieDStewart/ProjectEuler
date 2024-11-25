@@ -118,6 +118,15 @@
     <ClCompile Include="problems\problem_031.cpp">
       <Filter>Problems</Filter>
     </ClCompile>
+    <ClCompile Include="problems\problem_032.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
+    <ClCompile Include="problems\problem_033.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
+    <ClCompile Include="problems\problem_034.cpp">
+      <Filter>Problems</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="main/problems.h">

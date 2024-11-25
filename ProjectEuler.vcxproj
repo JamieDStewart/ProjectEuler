@@ -77,6 +77,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <AdditionalIncludeDirectories>$(ProjectDir)main; $(ProjectDir)utilities;</AdditionalIncludeDirectories>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -119,6 +120,9 @@
     <ClCompile Include="problems\problem_029.cpp" />
     <ClCompile Include="problems\problem_030.cpp" />
     <ClCompile Include="problems\problem_031.cpp" />
+    <ClCompile Include="problems\problem_032.cpp" />
+    <ClCompile Include="problems\problem_033.cpp" />
+    <ClCompile Include="problems\problem_034.cpp" />
     <ClCompile Include="problems\problem_067.cpp" />
     <ClCompile Include="utilities\utilities.cpp" />
   </ItemGroup>
