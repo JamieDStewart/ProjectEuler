@@ -10,9 +10,6 @@
  *	Find the sum of all the numbers that can be written as the sum of fifth powers of their digits.
  */
 
-#include <numeric>
-#include <set>
-
 #include "problems.h"
 #include "result.h"
 #include "timer.h"

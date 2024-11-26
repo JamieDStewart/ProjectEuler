@@ -23,7 +23,6 @@
 #include "timer.h"
 #include "utilities.h"
 
-#include <algorithm>
 #include <numeric>
 #include <vector>
 

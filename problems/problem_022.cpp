@@ -15,7 +15,6 @@
 #include "timer.h"
 
 #include <fstream>
-#include <numeric>
 #include <sstream>
 #include <string>
 #include <vector>

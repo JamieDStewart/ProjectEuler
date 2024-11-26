@@ -5,9 +5,6 @@
  * Note: As 1! = 1 and 2! = 2 are not sums they are not included.
  */
 
-#include <algorithm>
-#include <numeric>
-#include <set>
 #include <vector>
 
 #include "problems.h"

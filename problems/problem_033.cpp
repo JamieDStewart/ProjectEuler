@@ -10,10 +10,7 @@
  * If the product of these four fractions is given in its lowest common terms, find the value of the denominator.
  */
 
-#include <algorithm>
 #include <numeric>
-#include <set>
-#include <vector>
 
 #include "problems.h"
 #include "result.h"
